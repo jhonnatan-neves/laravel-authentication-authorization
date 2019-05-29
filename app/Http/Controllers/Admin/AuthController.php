@@ -49,8 +49,8 @@ class AuthController extends Controller
             $success['token'] = $user->createToken(env('APP_NAME'))->accessToken;
 
             return $this->sendSuccess($success, 'Acesso autorizado.', 200);
-        } else {
-            return $this->sendError('Usuário não autorizado.', 403);
-        }
+        } 
+        
+        return $this->sendError('Usuário não autorizado.', 403);
     }
 }
