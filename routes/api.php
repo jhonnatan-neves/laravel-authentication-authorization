@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function () {
-    return response()->json(Auth::user());
-});
+Route::middleware('auth:api')->get('/user', 'Admin\DashboardController@index');
 
 Route::prefix('public')->group(function () {
     Route::post('/signup', 'Admin\AuthController@signup');
