@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
 
         Gate::define('isAdmin', function($user) {
-            return $user->type_user === 2;
+            return $user->type_user === 1;
         });
     }
 }
