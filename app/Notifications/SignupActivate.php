@@ -40,7 +40,7 @@ class SignupActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url(env('APP_URL').'/activate/'.$notifiable->activation_token);
+        $url = url(env('APP_URL').'/email/activate/'.$notifiable->activation_token);
         
         return (new MailMessage)
             ->subject('Confirm your account')

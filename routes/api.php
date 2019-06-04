@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::group([
     'prefix' => 'email'
 ], function () {
-    Route::get('activate/{token}', 'Admin\AuthController@activate');
+    Route::get('activate/{token}', 'Auth\AuthController@activate');
     Route::post('create', 'Email\PasswordResetController@create');
     Route::get('find/{token}', 'Email\PasswordResetController@find');
     Route::post('reset', 'Email\PasswordResetController@reset');
