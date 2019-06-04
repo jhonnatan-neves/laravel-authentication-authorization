@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Email;
+namespace App\Http\Controllers\Password;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
