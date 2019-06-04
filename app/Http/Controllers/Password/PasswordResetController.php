@@ -62,7 +62,7 @@ class PasswordResetController extends Controller
             return $this->sendError($message, [], 404);
         }
 
-        if (Carbon::parse($passwordReset->created_at)->addMinutes(1)->isPast()) {
+        if (Carbon::parse($passwordReset->created_at)->addMinutes(15)->isPast()) {
             $passwordReset->delete();
 
             $message = 'Este token foi expirado.';

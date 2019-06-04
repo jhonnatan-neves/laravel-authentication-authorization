@@ -18,9 +18,9 @@ Route::group([
     'prefix' => 'email'
 ], function () {
     Route::get('activate/{token}', 'Auth\AuthController@activate');
-    Route::post('create', 'Email\PasswordResetController@create');
-    Route::get('find/{token}', 'Email\PasswordResetController@find');
-    Route::post('reset', 'Email\PasswordResetController@reset');
+    Route::post('create', 'Password\PasswordResetController@create');
+    Route::get('find/{token}', 'Password\PasswordResetController@find');
+    Route::post('reset', 'Password\PasswordResetController@reset');
 });
 // auth
 Route::group([
