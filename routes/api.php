@@ -13,9 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', 'Admin\DashboardController@index');
-
-Route::prefix('public')->group(function () {
-    Route::post('/signup', 'Admin\AuthController@signup');
-    Route::post('/signin', 'Admin\AuthController@signin');
+// email
+Route::group([
+    'prefix' => 'email'
+], function () {
+    Route::get('activate/{token}', 'Admin\AuthController@activate');
+    Route::post('create', 'Email\PasswordResetController@create');
+    Route::get('find/{token}', 'Email\PasswordResetController@find');
+    Route::post('reset', 'Email\PasswordResetController@reset');
+});
+// auth
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('signup', 'Auth\AuthController@signup');
+    Route::post('signin', 'Auth\AuthController@signin');
+});
+// admin
+Route::group([
+    'middleware' => 'auth:api',
+    'prefix' => 'admin'
+], function () {
+    Route::get('/users', 'Admin\DashboardController@index');
 });

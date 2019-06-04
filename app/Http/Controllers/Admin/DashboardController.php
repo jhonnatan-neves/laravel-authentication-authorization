@@ -18,7 +18,7 @@ class DashboardController extends Controller
             $this->user = Auth::user();
             
             if (Gate::denies('isAdmin')) {
-                return $this->sendError('Acesso não autorizado.', 403);
+                return $this->sendError('Acesso não autorizado.', [], 401);
             }
 
             return $next($request);
