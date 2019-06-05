@@ -76,7 +76,7 @@ class PasswordResetController extends Controller
     public function reset(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|string|email',
+            'email' => 'required|exists:users|max:255|email',
             'password' => 'required|string',
             'token' => 'required|string'
         ]);
